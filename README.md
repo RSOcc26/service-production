@@ -21,14 +21,13 @@ See the [architecture](https://github.com/RSOcc26/.github/blob/main/docs/archite
 ## Data ownership
 
 This service owns its own PostgreSQL database; no other service reads or
-writes it directly ([ADR-0003](https://github.com/RSOcc26/.github/blob/main/docs/adr/0003-database-per-service.md)).
+writes it directly ([ADR-0001](https://github.com/RSOcc26/.github/blob/main/docs/adr/0001-multi-tenancy.md)).
 
 Owns: executions, operation runs, quantity records (good, scrap, rejected).
 
 Multi-tenancy: tenants share tables. Every tenant-owned row has a `tenant_id`,
 and PostgreSQL row-level security restricts each transaction to the tenant
-from the verified tenant context ([ADR-0004](https://github.com/RSOcc26/.github/blob/main/docs/adr/0004-multi-tenancy-shared-tables-rls.md),
-[ADR-0008](https://github.com/RSOcc26/.github/blob/main/docs/adr/0008-tenant-context-validation.md)). All data is tenant-scoped.
+from the verified tenant context ([ADR-0001](https://github.com/RSOcc26/.github/blob/main/docs/adr/0001-multi-tenancy.md)). All data is tenant-scoped.
 
 ## API
 
@@ -56,7 +55,7 @@ Planned resources (through the gateway as `/api/production/v1/...`):
 
 Published through the transactional outbox to the `companycentral.events`
 exchange; consumers are idempotent
-([ADR-0006](https://github.com/RSOcc26/.github/blob/main/docs/adr/0006-rabbitmq-transactional-outbox.md)). Planned:
+([architecture](https://github.com/RSOcc26/.github/blob/main/docs/architecture.md#5-asynchronous-communication-events)). Planned:
 
 | Direction | Event | Description |
 |---|---|---|

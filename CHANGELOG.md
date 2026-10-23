@@ -8,6 +8,4 @@ and the project uses [Semantic Versioning](https://semver.org/).
 
 ### Added
 
-- Repository scaffold.
-- OpenAPI 3.1 contract (`src/api/openapi.yaml`) with the health, metrics and API docs endpoints.
-- `.env.example` documenting the configuration.
+- Initial repository scaffold.
