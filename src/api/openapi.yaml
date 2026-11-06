@@ -4,9 +4,10 @@ info:
   version: 0.0.0
   summary: "Production service: execution of released work orders: operation status, produced quantities, scrap and rejected quantities, and completion."
   description: |
-    Contract for `service-production`. Only the operational endpoints are defined so far;
+    Contract for `service-production`. Only the operational endpoints are planned so far;
     resources are added contract-first together with their implementation.
-    Status: contract only, nothing is implemented yet.
+    Status: contract only. The service has no HTTP server yet, so none of these endpoints
+    (including `/api-docs`) is served; they describe what it will expose.
   license:
     name: MIT
     identifier: MIT
